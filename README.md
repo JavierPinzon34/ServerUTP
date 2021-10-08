@@ -10,7 +10,8 @@ Instalar las dependencias y devDependencias e iniciar el servidor.
 ```sh
 cd ServerUTP
 npm i
-node start
+npm start (Produccion)
+npm run start:dev (Desarrollo)
 ```
 
 ## License
