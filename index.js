@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose')
 var app = require('./app')
-var port = process.env.PORT ? process.env.PORT : 3000
+
+app.set("PORT", process.env.PORT || 3000)
 
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb+srv://javier123:javier123@cluster0.vshzu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
@@ -13,8 +14,11 @@ mongoose.connect('mongodb+srv://javier123:javier123@cluster0.vshzu.mongodb.net/m
 )
   .then(() => {
     console.log('Coneccion exitosa')
-    app.listen(port, () => {
-      console.log('Servidor corriendo correctamente en -> localhost:3700')
-    })
+    /* app.listen(port, () => {
+      console.log('Servidor corriendo correctamente en -> localhost:3000')
+    }) */
+    app.listen(app.get("PORT"), () => {
+      console.log(`Server started on port: ${app.get("PORT")}`);
+    });
   })
   .catch(err => console.log(err))
