@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose')
 var app = require('./app')
-var port = 3700
+var port = process.env.PORT ? process.env.PORT : 3000
 
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb+srv://javier123:javier123@cluster0.vshzu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
