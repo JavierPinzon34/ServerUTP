@@ -13,10 +13,7 @@ mongoose.connect('mongodb+srv://javier123:javier123@cluster0.vshzu.mongodb.net/m
   }
 )
   .then(() => {
-    console.log('Coneccion exitosa')
-    /* app.listen(port, () => {
-      console.log('Servidor corriendo correctamente en -> localhost:3000')
-    }) */
+    console.log('Coneccion exitosa')    
     app.listen(app.get("PORT"), () => {
       console.log(`Server started on port: ${app.get("PORT")}`);
     });

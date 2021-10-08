@@ -8,6 +8,7 @@ var app = express()
 //archivos de rutas
 var project_routes = require('./routes/project')
 var user_routes = require('./routes/user')
+var service_routes = require('./routes/service')
 
 //midlewares
 app.use(bodyParser.urlencoded({extended:false}))
@@ -21,9 +22,11 @@ app.use((req, res, next)=>{
   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
 //rutas
 app.use('/', project_routes)
 app.use('/', user_routes)
+app.use('/', service_routes)
 
 //exportar
 module.exports = app
