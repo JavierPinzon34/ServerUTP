@@ -7,6 +7,7 @@ var app = express()
 
 //archivos de rutas
 var project_routes = require('./routes/project')
+var user_routes = require('./routes/user')
 
 //midlewares
 app.use(bodyParser.urlencoded({extended:false}))
@@ -22,6 +23,7 @@ app.use((req, res, next)=>{
 });
 //rutas
 app.use('/', project_routes)
+app.use('/', user_routes)
 
 //exportar
 module.exports = app
