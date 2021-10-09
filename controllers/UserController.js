@@ -24,7 +24,7 @@ var controller = {
     user.mail = params.mail
     user.age = params.age
     user.password = params.password
-    user.username = params.username
+    user.username = params.username    
 
     user.save((err, UserStored) => {
       if(err) return res.status(500).send({message: "Error al guardar"})
@@ -53,7 +53,13 @@ var controller = {
   update : function(req, res){
     var userId = req.params.id
     if (userId == null) return res.status(404).send({message: 'No tengo ID'})
-    var update = req.body
+    var update = req.body   
+    var actual = User.findById(userId)
+    if (req.body.password != null && req.body.password != '') {
+      update.password = req.body.password
+    } else {
+      update.password = actual.password
+    }
     User.findByIdAndUpdate(userId, update, (err, userUpdate) => {
       if (err) return res.status(500).send({message: 'Error al modificar los datos'})
       if (!userUpdate) return res.status(404).send({message: 'El registro no existe'})
