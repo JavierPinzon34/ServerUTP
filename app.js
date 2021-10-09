@@ -9,6 +9,7 @@ var app = express()
 var project_routes = require('./routes/project')
 var user_routes = require('./routes/user')
 var service_routes = require('./routes/service')
+var article_routes = require('./routes/article')
 
 //midlewares
 app.use(bodyParser.urlencoded({extended:false}))
@@ -27,6 +28,7 @@ app.use((req, res, next)=>{
 app.use('/', project_routes)
 app.use('/', user_routes)
 app.use('/', service_routes)
+app.use('/', article_routes)
 
 //exportar
 module.exports = app
