@@ -26,11 +26,11 @@ app.use((req, res, next)=>{
 });
 
 //rutas
-app.use('/', project_routes)
-app.use('/', user_routes)
-app.use('/', service_routes)
-app.use('/', article_routes)
-app.use('/', category_routes)
+app.use('/api/', project_routes)
+app.use('/api/', user_routes)
+app.use('/api/', service_routes)
+app.use('/api/', article_routes)
+app.use('/api/', category_routes)
 
 //exportar
 module.exports = app
