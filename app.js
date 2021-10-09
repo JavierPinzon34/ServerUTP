@@ -10,6 +10,7 @@ var project_routes = require('./routes/project')
 var user_routes = require('./routes/user')
 var service_routes = require('./routes/service')
 var article_routes = require('./routes/article')
+var category_routes = require('./routes/category')
 
 //midlewares
 app.use(bodyParser.urlencoded({extended:false}))
@@ -29,6 +30,7 @@ app.use('/', project_routes)
 app.use('/', user_routes)
 app.use('/', service_routes)
 app.use('/', article_routes)
+app.use('/', category_routes)
 
 //exportar
 module.exports = app
