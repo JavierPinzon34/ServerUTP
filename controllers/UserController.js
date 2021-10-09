@@ -23,7 +23,6 @@ var controller = {
     user.name = params.name
     user.mail = params.mail
     user.age = params.age
-    user.description = params.description
     user.password = params.password
     user.username = params.username
 
@@ -32,11 +31,9 @@ var controller = {
       if(!UserStored) return res.status(404).send({message: "no se a podido guardar"})
       return res.status(200).send({
         message: 'Guardado con exito',
-        user: user
+        user
       })
-    })
-
-    
+    })    
   },
 
   //traer un registro especifico por el id peticion GET
