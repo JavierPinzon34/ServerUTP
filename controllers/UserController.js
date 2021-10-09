@@ -53,11 +53,11 @@ var controller = {
   update : function(req, res){
     var userId = req.params.id
     if (userId == null) return res.status(404).send({message: 'No tengo ID'})
-    var update = req.body   
-    var actual = User.findById(userId)
+    var update = req.body       
     if (req.body.password != null && req.body.password != '') {
       update.password = req.body.password
     } else {
+      var actual = User.findById(userId)
       update.password = actual.password
     }
     User.findByIdAndUpdate(userId, update, (err, userUpdate) => {
