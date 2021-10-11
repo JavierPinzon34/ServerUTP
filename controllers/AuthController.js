@@ -32,7 +32,7 @@ var controller = {
             } else {
               return res.status(401).send({
                 success: false,
-                msg: "Authentication failed. Wrong password."
+                msg: "Autenticación fallida. Contraseña no funciona."
               })
             }
           })
