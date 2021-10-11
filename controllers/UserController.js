@@ -6,7 +6,17 @@ const { param } = require('../routes/user')
 var controller = {
   //Ver o listar informacion peticion GET
   index : function(req, res){
-    var token = getToken(req.headers)
+    var token
+    if (headers && headers.authorization) {
+      var parted = headers.authorization.split(" ");
+      if (parted.length === 2) {
+        token = parted[1];
+      } else {
+        token = null;
+      }
+    } else {
+      token = null;
+    }
     if (token) {
       User.find({}).exec((err, users) => {
         if (err) return res.status(500).send({message: 'Error al devover datos'}) 
@@ -109,7 +119,7 @@ var controller = {
     }    
   },
 
-  getToken(headers) {
+  getToken : function(headers) {
     if (headers && headers.authorization) {
       var parted = headers.authorization.split(" ");
       if (parted.length === 2) {
