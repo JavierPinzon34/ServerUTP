@@ -7,7 +7,7 @@ var UserController = require('../controllers/UserController')
 
 var router = express.Router()
 
-router.get('/user', passport.authenticate("jwt", { session: false }), UserController.index)
+router.get('/user', UserController.index)
 router.get('/user/:id?', UserController.show)
 router.post('/user', UserController.store)
 router.put('/user/:id?', UserController.update)
